@@ -5,7 +5,7 @@ import './App.css';
 
 import Button from '@mui/material/Button';
 import { useEffect, useState } from 'react';
-import { getProducts } from './services/product-service';
+import { addProduct, getProducts } from './services/product-service';
 import ListProducts from './pages/list-products-page';
 import { productContainer } from './styles/product-style';
 import AddProductDialog from "./pages/add-product-dialog";
@@ -19,6 +19,7 @@ function App() {
 
   const handleClose = (value) => {
     console.log("valueee", value)
+    addProduct(value).then(response => getProductsApi())
     setOpen(false);
   };
 
