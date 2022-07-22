@@ -2,8 +2,6 @@
 import {css} from "@emotion/react";
 export const productContainer = css`
     display:flex;
-    width: 800px;
-    height: 100%;
     align-items:center;
     justify-content:center;
     margin:20px;
