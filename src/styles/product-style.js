@@ -22,3 +22,7 @@ export const input = css`
     border: 1px solid gray;
     height: 40px;
 `
+export const button = css`
+margin: 10px;
+
+`

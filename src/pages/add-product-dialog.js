@@ -6,10 +6,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import Select from '@mui/material/Select';
 
+import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import { containerDialog, input } from "../styles/product-style";
+import { button, containerDialog, input } from "../styles/product-style";
+import InputComponent from "../components/input-component";
 const AddProductDialog = (props) => {
     const { onClose, selectedValue, open } = props;
 
@@ -21,7 +23,6 @@ const AddProductDialog = (props) => {
         onClose(value);
     };
     const handleProduct = (event) => {
-        event.preventDefault();
         console.log(event)
     }
 
@@ -29,18 +30,19 @@ const AddProductDialog = (props) => {
         <div css={containerDialog}>
             <Dialog onClose={handleClose} open={open} css={containerDialog}>
                 <DialogTitle>Agregar Producto</DialogTitle>
-
-                <input placeholder="nombre" css={input}></input>
-                <select name="select" css={input}>
-                    <option value="Genfar">Genfar</option>
-                    <option value="GSK">GSK</option>
-                    <option value="Hersil">Hersil</option>
-                    <option value="FarmaIndustria">FarmaIndustria</option>
-                </select>
-                
-                <input placeholder="cantidad" css={input}></input>
-                <input placeholder="precio" css={input}></input>
-                <button type="submit">Enviar</button>
+                <form onSubmit={handleProduct}>
+                    <InputComponent placeholder={"nombre"} id={"nombre"} />
+                    <select name="select" css={input}>
+                        <option value="Genfar">Genfar</option>
+                        <option value="GSK">GSK</option>
+                        <option value="Hersil">Hersil</option>
+                        <option value="FarmaIndustria">FarmaIndustria</option>
+                    </select>
+                    
+                    <InputComponent placeholder={"cantidad"} id={"cantidad"} type={"number"} />
+                    <InputComponent placeholder={"precio"} id={"precio"}  />
+                    <Button variant="outlined" css={button} type="submit">Enviar</Button>
+                </form>
 
             </Dialog>
         </div>
