@@ -18,11 +18,14 @@ function App() {
   };
 
   const handleClose = (value) => {
+    console.log("valueee", value)
     setOpen(false);
   };
+
   useEffect(()=> {
     getProductsApi();
   },[])
+
   const getProductsApi = () => {
     getProducts().then(response => setProducts(response))
   }
