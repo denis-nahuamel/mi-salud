@@ -21,8 +21,11 @@ function App() {
     setOpen(false);
   };
   useEffect(()=> {
-    getProducts().then(response => setProducts(response))
+    getProductsApi();
   },[])
+  const getProductsApi = () => {
+    getProducts().then(response => setProducts(response))
+  }
   return (
     <>
       <Button variant="outlined" onClick={handleClickOpen}>

@@ -1,31 +1,43 @@
+/** @jsxImportSource @emotion/react */
+import {css} from "@emotion/react";
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import Typography from '@mui/material/Typography';
-import { blue } from '@mui/material/colors';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import { containerDialog, input } from "../styles/product-style";
 const AddProductDialog = (props) => {
     const { onClose, selectedValue, open } = props;
 
     const handleClose = () => {
-      onClose(selectedValue);
+        onClose(selectedValue);
     };
-  
+
     const handleListItemClick = (value) => {
-      onClose(value);
+        onClose(value);
     };
-  
+
     return (
-      <Dialog onClose={handleClose} open={open}>
-        <DialogTitle>Set backup account</DialogTitle>
-        
-      </Dialog>
+        <div css={containerDialog}>
+            <Dialog onClose={handleClose} open={open} css={containerDialog}>
+                <DialogTitle>Agregar Producto</DialogTitle>
+                <input placeholder="nombre" css={input}></input>
+                <Select
+                    labelId="demo-select-small"
+                    id="demo-select-small"
+                    label="Laboratorio"
+                >
+                    <MenuItem value={"Genfar"}>Genfar</MenuItem>
+                    <MenuItem value={"GSK"}>GSK</MenuItem>
+                    <MenuItem value={"Hersil"}>Hersil</MenuItem>
+                    <MenuItem value={"FarmaIndustria"}>FarmaIndustria”.</MenuItem>
+                </Select>
+                <input placeholder="cantidad" css={input}></input>
+                <input placeholder="precio" css={input}></input>
+            </Dialog>
+        </div>
     );
 }
 export default AddProductDialog;
