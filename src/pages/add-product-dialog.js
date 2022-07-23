@@ -2,7 +2,6 @@
 import { css } from "@emotion/react";
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-
 import Button from '@mui/material/Button';
 import { button, containerDialog, contCenterCenter, errorMessageLabel, formDisplay, input } from "../styles/product-style";
 import InputComponent from "../components/input-component";
@@ -11,12 +10,30 @@ import { useState } from "react";
 const AddProductDialog = (props) => {
     const { onClose, selectedValue, open } = props;
     const [errorMessage, setErrorMessage] = useState(null);
+    const [price, setPrice] = useState("");
     const handleClose = (value) => {
         setErrorMessage(null);
+        setPrice("");
         onClose(value);
 
     };
-
+    const handlePriceChanged = (evt) => {
+        const { value } = evt.target;
+      
+        // check if value includes a decimal point
+        if (value.match(/\./g)) {
+          const [, decimal] = value.split('.');
+      
+          // restrict value to only 2 decimal places
+          if (decimal?.length > 2) {
+            // do nothing
+            return;
+          }
+        }
+      
+        // otherwise, update value in state
+        setPrice(value);
+    }
     const handleProduct = (event) => {
         event.preventDefault();
         const data = event.target.elements;
@@ -32,6 +49,7 @@ const AddProductDialog = (props) => {
             else onClose(send);
         })
         setErrorMessage(null);
+        setPrice("");
     }
 
     return (
@@ -49,7 +67,8 @@ const AddProductDialog = (props) => {
                     </select>
 
                     <InputComponent placeholder={"cantidad"} id={"cantidad"} type={"number"} />
-                    <InputComponent placeholder={"precio"} id={"precio"} />
+                    <input css={input} placeholder="precio" value={price} onChange={handlePriceChanged} 
+                    id="precio" name="precio" type="number" />
                     <div css={contCenterCenter}>
                         {errorMessage ? <p css={errorMessageLabel}>{errorMessage}</p> : null}
                     </div>
