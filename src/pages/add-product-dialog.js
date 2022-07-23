@@ -17,7 +17,9 @@ const AddProductDialog = (props) => {
     const { onClose, selectedValue, open } = props;
     const [errorMessage, setErrorMessage] = React.useState(null);
     const handleClose = (value) => {
+        setErrorMessage(null);
         onClose(value);
+
     };
 
     const handleProduct = (event) => {
