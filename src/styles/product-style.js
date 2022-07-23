@@ -1,9 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import {css} from "@emotion/react";
-export const productContainer = css`
+export const contCenterCenter = css`
     display:flex;
     align-items:center;
     justify-content:center;
+`
+export const productContainer = css`
+    ${contCenterCenter};
     margin:20px;
 `
 export const mainContainer = css`
@@ -29,5 +32,8 @@ margin: 10px;
 export const formDisplay = css`
 display: flex;
 flex-direction: column;
-
+`
+export const errorMessageLabel = css`
+    font-size:10px;
+    color: red;
 `

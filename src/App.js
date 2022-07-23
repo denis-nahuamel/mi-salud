@@ -18,11 +18,11 @@ function App() {
   };
 
   const handleClose = (value) => {
-    addProduct(value).then(response => {
-      console.log("response", response);
-      if(response === 422) console.log("ya existe un producto con ese nombre")
-      else getProductsApi()
-    })
+    // addProduct(value).then(response => {
+    //   if(response === 422) console.log("ya existe un producto con ese nombre")
+    //   else getProductsApi()
+    // })
+    getProductsApi();
     setOpen(false);
   };
 
