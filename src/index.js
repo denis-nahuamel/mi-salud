@@ -1,13 +1,19 @@
+/** @jsxImportSource @emotion/react */
+import {css} from "@emotion/react";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { mainContainer } from './styles/product-style';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <div css={mainContainer}>
+
+      <App />
+    </div>
   </React.StrictMode>
 );
 
