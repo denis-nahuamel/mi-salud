@@ -1,21 +1,16 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import * as React from 'react';
-import PropTypes from 'prop-types';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import Select from '@mui/material/Select';
 
 import Button from '@mui/material/Button';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
 import { button, containerDialog, contCenterCenter, errorMessageLabel, formDisplay, input } from "../styles/product-style";
 import InputComponent from "../components/input-component";
 import { addProduct } from "../services/product-service";
+import { useState } from "react";
 const AddProductDialog = (props) => {
     const { onClose, selectedValue, open } = props;
-    const [errorMessage, setErrorMessage] = React.useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
     const handleClose = (value) => {
         setErrorMessage(null);
         onClose(value);

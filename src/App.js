@@ -5,9 +5,9 @@ import './App.css';
 
 import Button from '@mui/material/Button';
 import { useEffect, useState } from 'react';
-import { addProduct, getProducts } from './services/product-service';
+import { getProducts } from './services/product-service';
 import ListProducts from './pages/list-products-page';
-import { productContainer } from './styles/product-style';
+import { addButtonContainer, productContainer } from './styles/product-style';
 import AddProductDialog from "./pages/add-product-dialog";
 
 function App() {
@@ -18,10 +18,6 @@ function App() {
   };
 
   const handleClose = (value) => {
-    // addProduct(value).then(response => {
-    //   if(response === 422) console.log("ya existe un producto con ese nombre")
-    //   else getProductsApi()
-    // })
     getProductsApi();
     setOpen(false);
   };
@@ -35,9 +31,11 @@ function App() {
   }
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Add Product
-      </Button>
+      <div css={addButtonContainer}>
+        <Button variant="outlined" onClick={handleClickOpen}>
+          Agregar Producto
+        </Button>
+      </div>
       <AddProductDialog
         open={open}
         onClose={handleClose}

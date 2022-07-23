@@ -7,7 +7,7 @@ export const contCenterCenter = css`
 `
 export const productContainer = css`
     ${contCenterCenter};
-    margin:20px;
+    margin:0 20px 0 20px;
 `
 export const mainContainer = css`
 position: fixed;
@@ -36,4 +36,10 @@ flex-direction: column;
 export const errorMessageLabel = css`
     font-size:10px;
     color: red;
+`
+export const addButtonContainer = css`
+    display:flex;
+    width:100%;
+    justify-content: flex-start;
+    margin:20px 0 0 20px;
 `
